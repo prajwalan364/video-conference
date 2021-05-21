@@ -4,16 +4,20 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "nodemon server/index.js"
+		"start": "node server/index.js",
+		"server": "nodemon server/index.js",
+		"client": "npm start --prefix client",
+		"dev": "concurrently \"npm run server\" \"npm run client\""
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"concurrently": "^6.0.2",
 		"cors": "^2.8.5",
 		"express": "^4.17.1",
 		"nodemon": "^2.0.7",
+		"peer": "^0.6.1",
 		"socket.io": "^4.0.1"
 	}
 }
