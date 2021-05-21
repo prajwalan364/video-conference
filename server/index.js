@@ -1,11 +1,16 @@
 const express = require('express');
-const io = require('socket.io')(server);
 const http = require('http');
+const app = express();
+const server = http.createServer(app);
+const  { Server } = require('socket.io')
+const io =new Server(server)
 const path = require('path');
 const cors = require('cors');
 
-const app = express();
-const server = http.createServer(app);
+io.on('connection', (socket) => {
+    socket.on('message', ({ name, message }) => {
+        io.emit('message', { name, message })
+    })
+} )
 
-app.use(cors());
-app.use(express.json());
+server.listen(5000, () => console.log('server running on PORT: 5000'))
