@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
+  console.log(' user connected', socket.id);
   socket.on('join-room', (roomId, userId) => {
     console.log(roomId, userId);
     socket.join(roomId);
@@ -33,6 +34,11 @@ io.on('connection', (socket) => {
     socket.on('message', ({ message, userId }) => {
       console.log(message, userId);
       io.to(roomId).emit('createMessage', message, userId);
+    });
+
+    // When User Disconnected
+    socket.on('disconnect', (userId) => {
+      socket.broadcast.to(roomId).emit('user-disconnected', userId);
     });
   });
 });
