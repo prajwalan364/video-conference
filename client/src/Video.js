@@ -103,7 +103,6 @@ const Video = () => {
 
     return () => {
       socket.off();
-      socket.off();
     };
   }, [roomId]);
 
