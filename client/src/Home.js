@@ -39,7 +39,7 @@ const Home = () => {
     <div className="wraper">
       <div className="container">
         <div className="video-icon">
-          <i class="fas fa-video"></i>
+          <i className="fas fa-video"></i>
           <h1>VIDEO CONFERENCE</h1>
         </div>
 

@@ -260,3 +260,17 @@ video {
   font-size: 2rem;
   letter-spacing: 2px;
 }
+
+.header {
+  padding: 1.2rem;
+  background-color: #0097e6;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header > p {
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+}

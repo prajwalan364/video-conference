@@ -7,7 +7,7 @@ function App() {
   return (
     <Router>
       <Route path="/" component={Home} exact />
-      <Route path="/:url" component={Video} />
+      <Route path="/:roomId" component={Video} />
     </Router>
   );
 }
