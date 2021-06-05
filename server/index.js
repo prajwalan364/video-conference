@@ -20,8 +20,11 @@ const io = require('socket.io')(server, {
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('<h1>Socket.io</h1>');
+const _dirname = path.resolve();
+app.use(express.static(path.join(_dirname, '/client/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(_dirname, '/client/build/index.html'));
 });
 
 io.on('connection', (socket) => {
